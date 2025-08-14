@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-container">
+        <div class="login-box">
+            <h2>Admin Login</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button id="login-button">Login</button>
+        </div>
+    </div>
+
+    <div id="app-container" class="hidden">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Bab08 Admin</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-btn active" data-panel="dashboard">Dashboard</button>
+                <button class="nav-btn" data-panel="requests">Requests</button>
+                <button class="nav-btn" data-panel="rooms">Rooms</button>
+                <button class="nav-btn" data-panel="tenants">Tenants</button>
+                <button class="nav-btn" data-panel="chat">Chat</button>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <div id="dashboard" class="panel active">
+                <h2>Dashboard</h2>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>Active Rooms</h3>
+                        <p>5 / 9</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Tenants</h3>
+                        <p>12</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Revenue</h3>
+                        <p>15,000 DZD</p>
+                    </div>
+                </div>
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <button id="add-reminder-btn">Add New Reminder</button>
+                    <button>Run Budget Status</button>
+                </div>
+                <div class="reminders-container">
+                    <h3>Reminders</h3>
+                    <ul id="reminder-list">
+                        <li>
+                            <span>Follow up with Tech Solutions Inc.</span>
+                            <span class="time-left">2 days</span>
+                        </li>
+                        <li>
+                            <span>Prepare monthly report</span>
+                            <span class="time-left">5 hours</span>
+                        </li>
+                    </ul>
+                    <div id="add-reminder-form" class="hidden">
+                        <input type="datetime-local" id="reminder-date">
+                        <input type="text" id="reminder-title" placeholder="Reminder title">
+                        <button id="save-reminder-btn">Save</button>
+                    </div>
+                </div>
+            </div>
+            <div id="requests" class="panel">
+                <h2>Requests</h2>
+                <div class="filter-tags">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Pending</button>
+                    <button class="filter-btn">Rejected</button>
+                </div>
+                <table class="requests-table">
+                    <thead>
+                        <tr>
+                            <th>Organization Name</th>
+                            <th>Room</th>
+                            <th>Duration</th>
+                            <th>Services</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tech Solutions Inc.</td>
+                            <td>Conference Room A</td>
+                            <td>30 days</td>
+                            <td>Training and coaching</td>
+                            <td><button class="inspect-btn">Inspect</button></td>
+                        </tr>
+                        <tr>
+                            <td>Innovate Hub</td>
+                            <td>Meeting Room 2</td>
+                            <td>15 days</td>
+                            <td>Business meeting and management</td>
+                            <td><button class="inspect-btn">Inspect</button></td>
+                        </tr>
+                        <tr>
+                            <td>Global Exports</td>
+                            <td>Office Suite 5</td>
+                            <td>3 months</td>
+                            <td>Working space</td>
+                            <td><button class="inspect-btn">Inspect</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="rooms" class="panel">
+                <h2>Rooms</h2>
+                <button class="add-room-btn">Add New Room</button>
+                <div class="room-list">
+                    <div class="room-card">
+                        <img src="desktophtml_1.jpg" alt="Room 1">
+                        <div class="room-info">
+                            <h3>Conference Room A</h3>
+                            <p>Area: 50m², Location: 1st Floor</p>
+                            <p>Features: Projector, Whiteboard, Wi-Fi</p>
+                            <p>Price: 5000 DZD/day</p>
+                        </div>
+                        <div class="room-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+                    <div class="room-card">
+                        <img src="desktophtml_2.jpg" alt="Room 2">
+                        <div class="room-info">
+                            <h3>Meeting Room 2</h3>
+                            <p>Area: 25m², Location: 2nd Floor</p>
+                            <p>Features: Wi-Fi</p>
+                            <p>Price: 2500 DZD/day</p>
+                        </div>
+                        <div class="room-actions">
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tenants" class="panel">
+                <h2>Tenants</h2>
+                <div class="filter-tags">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn paid">Paid</button>
+                    <button class="filter-btn pending">Pending</button>
+                    <button class="filter-btn overdue">Overdue</button>
+                </div>
+                <table class="tenants-table">
+                    <thead>
+                        <tr>
+                            <th>Tenant Name</th>
+                            <th>Room</th>
+                            <th>Subscription</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>Office Suite 1</td>
+                            <td>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar" style="width: 100%; background-color: var(--success-color);"></div>
+                                </div>
+                            </td>
+                            <td><span class="status-paid">Paid</span></td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>Office Suite 2</td>
+                            <td>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar" style="width: 80%; background-color: var(--warning-color);"></div>
+                                </div>
+                            </td>
+                            <td><span class="status-pending">Pending (5 days left)</span></td>
+                        </tr>
+                        <tr>
+                            <td>Mike Johnson</td>
+                            <td>Office Suite 3</td>
+                            <td>
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar" style="width: 100%; background-color: var(--danger-color);"></div>
+                                </div>
+                            </td>
+                            <td><span class="status-overdue">Overdue</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="chat" class="panel">
+                <h2>Chat</h2>
+                <div class="chat-container">
+                    <div class="tenant-list">
+                        <div class="tenant-chat-item active">
+                            <h4>John Doe</h4>
+                            <p>Last message...</p>
+                        </div>
+                        <div class="tenant-chat-item">
+                            <h4>Jane Smith</h4>
+                            <p>Last message...</p>
+                        </div>
+                        <div class="tenant-chat-item">
+                            <h4>Global Chat</h4>
+                            <p>Last message...</p>
+                        </div>
+                    </div>
+                    <div class="chat-window">
+                        <div class="chat-header">
+                            <h3>John Doe</h3>
+                        </div>
+                        <div class="chat-messages">
+                            <div class="message received">
+                                <p>Hello, I have a question about my subscription.</p>
+                                <span>10:30 AM</span>
+                            </div>
+                            <div class="message sent">
+                                <p>Hi John, I'm here to help. What's your question?</p>
+                                <span>10:31 AM</span>
+                            </div>
+                        </div>
+                        <div class="chat-input">
+                            <input type="text" placeholder="Type a message...">
+                            <button>Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

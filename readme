@@ -1,1 +1,109 @@
-hi
+
+# Admin Desktop Application
+
+The **Admin Desktop Application** is a management tool for overseeing room bookings, tenant subscriptions, payments, and communication — all from a unified, easy-to-use interface.
+
+---
+
+## Features
+
+### 1. Secure Login
+
+* Small, focused login window for entering **username** and **password**.
+* On successful login, the user is redirected to the **Dashboard**.
+
+---
+
+### 2. Dashboard
+
+* **Real-time statistics**:
+
+  * Active rooms count (e.g., 5/9)
+  * Active tenants count
+  * Total revenue from active tenants
+* **Quick actions**:
+
+  * Add reminders
+  * View existing reminders
+  * Check budget status
+* **Reminders List**:
+
+  * Remaining time displayed in days, hours, or minutes
+  * Task-list style — no “View” button needed
+  * Thin, professional progress bars
+
+---
+
+### 3. Requests Panel
+
+* View and manage booking requests.
+* **Filter tags**:
+
+  * All
+  * Pending
+  * Rejected
+* **Each request shows**:
+
+  * Organization name
+  * Room requested
+  * Duration (days or months)
+  * Additional services requested (e.g., food)
+  * Inspect button → full details, contact info, uploaded files, and notes
+* Approved requests are automatically removed from the list.
+
+---
+
+### 4. Tenants Panel
+
+* **Filter tags**:
+
+  * Paid (green)
+  * Pending (orange)
+  * Overdue (red)
+* **Each tenant row includes**:
+
+  * Tenant name
+  * Assigned room
+  * Subscription progress bar (green/orange/red)
+  * Remaining days for pending status
+* **Payment rules**:
+
+  * New payment can only be added when:
+
+    * Subscription is 75% complete, or
+    * Status is pending
+* Clicking a tenant opens a detailed profile with payment history and subscription details.
+
+---
+
+### 5. Rooms Panel
+
+* **Room management tools**:
+
+  * Add new rooms (name, area, location, description, features, price, pictures)
+  * Edit existing rooms
+  * Delete rooms
+* **Room details view**:
+
+  * Current occupant
+  * Usage history
+  * Revenue generated
+  * All past occupants and deals
+
+---
+
+### 6. Chat Panel
+
+* **Communication tools**:
+
+  * One-on-one chat with tenants
+  * Group/global chat with all tenants
+  * Centralized chat interface with history
+  * Real-time messaging
+
+---
+
+## Technology Stack
+
+* **Framework:** [Electron](https://www.electronjs.org/)
+* **Frontend:** HTML, CSS, JavaScript
